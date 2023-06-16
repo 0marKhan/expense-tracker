@@ -1,6 +1,7 @@
 import "./App.scss";
 import ExpenseItem from "./Components/ExpenseItem/ExpenseItem";
 import NewExpense from "./Components/NewExpense/NewExpense";
+import ExpensesFilter from "./Components/ExpensesFilter/ExpensesFilter";
 
 function App() {
   const expenses = [
@@ -24,9 +25,15 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("in App.js");
+    console.log(expense);
+  };
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <ExpensesFilter />
       <div className="container">
         <ExpenseItem
           title={expenses[0].title}
