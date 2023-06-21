@@ -3,6 +3,7 @@ import ExpenseItem from "./Components/ExpenseItem/ExpenseItem";
 import NewExpense from "./Components/NewExpense/NewExpense";
 import ExpensesFilter from "./Components/ExpensesFilter/ExpensesFilter";
 import { useState } from "react";
+import ExpensesList from "./Components/ExpensesList/ExpensesList";
 
 const DummyExpenses = [
   {
@@ -53,14 +54,7 @@ function App() {
           selectedYear={filteredYear}
           onFilterChange={filterChangeHandler}
         />
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        <ExpensesList items={filteredExpenses} />
       </div>
     </div>
   );
